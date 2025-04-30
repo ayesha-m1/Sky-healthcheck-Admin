@@ -1,0 +1,28 @@
+{% extends 'dashboard/main.html' %}
+
+{% block content %}
+<div class="text-center mt-1">
+    <p >Welcome to the Health Check System, designed to help teams and departments track progress and maintain high standards. You'll have full control over managing teams and departments, including editing them as needed. They can also oversee user roles and manage cards and sessions to ensure smooth operations.</p>
+</div>
+
+<div class="d-flex flex-column align-items-center mt-5">
+    <a href="{% url 'team_department' %}" class="btn btn-outline-secondary mb-3 w-50">
+        View Team & Department <span class="float-end">→</span>
+    </a>
+    
+    <a href="{% url 'view_user' %}" class="btn btn-outline-secondary mb-3 w-50">
+        View User <span class="float-end">→</span>
+    </a>
+    
+    <a href="{% url 'view_session' %}" class="btn btn-outline-secondary mb-3 w-50">
+        View Session <span class="float-end">→</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block navigation_buttons %}
+<div class="mt-5">
+    <a href="#" class="btn btn-primary disabled">Back</a>
+    <a href="{% url 'team_department' %}" class="btn btn-primary">Next</a>
+</div>
+{% endblock %}

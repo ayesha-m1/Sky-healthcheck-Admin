@@ -1,0 +1,49 @@
+{% extends 'dashboard/main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Dropdown box -->
+            <div class="border p-3 mb-3">
+                <select class="form-select"style="border-radius: 0; border: none">
+                    <option selected>Select the user you are wanting to view</option>
+                    {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+        
+<div class="border p-3 mb-3" style="min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <!-- Top box  -->
+    <div class="border p-3" style="margin-bottom: 1rem; width: 200px;">
+        <p class="mb-1">User A</p>
+        <p class="mb-1">Team B</p>
+        <p class="mb-0">Department A</p>
+    </div>
+    
+    <!-- Bottom box (right aligned) -->
+    <div class="border p-3" style=" width: 200px;">
+        <p class="mb-1">Jack Smith</p>
+        <p class="mb-1">Team B</p>
+        <p class="mb-0">ID 0000 / Email</p>
+    </div>
+</div>
+            
+            <!-- Buttons box -->
+            <div class=" text-end">
+                <button class="btn" style="border: 1px solid #ccc; border-radius: 0;">Add</button>
+                <button class="btn"style="border: 1px solid #ccc; border-radius: 0;">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block navigation_buttons %}
+<div class="mt-5">
+    <a href="{% url 'team_department' %}" class="btn btn-primary">Back</a>
+    <a href="{% url 'view_session' %}" class="btn btn-primary">Next</a>
+</div>
+{% endblock %}

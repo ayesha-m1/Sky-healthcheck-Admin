@@ -1,0 +1,72 @@
+body {
+    background-color: #f8f9fa !important;
+    margin-top: 5px !important;
+}
+
+.top-gradient {
+    height: 3px;
+    background: linear-gradient(to right, #ff5757, #ff914d, #ffcd4d, #5aa9e6, #7768ae);
+    width: 100%;
+}
+
+.header-container {
+background-color: white;
+padding: 0;
+margin: 0;
+width: 100%; 
+}
+
+.sky-logo {
+
+line-height: 0.9;
+padding: 15px 0 15px 20px;
+}
+
+.sky-text {
+font-size: 52px !important;
+font-weight: bold;
+background: linear-gradient(to right, #ff5757, #ff914d, #ffcd4d, #5aa9e6, #7768ae);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+color: transparent; 
+display: inline-block;
+}
+
+.life-text {
+font-size: 42px;
+color: #6c757d; 
+font-weight: 600;
+letter-spacing: 2px;
+margin-left: 4rem;
+}
+
+.nav-bar {
+background-color: #b8b8c6;
+padding: 8px 15px; 
+margin: 0;
+
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.page-container {
+    background-color: white;
+   
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 5px;
+}
+
+.sidebar-bg {
+    background: linear-gradient(135deg, #ffa07a, #87ceeb);
+    min-height: 100%;
+}
+
+.navigation-buttons {
+    margin-top: 30px;
+}

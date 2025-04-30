@@ -1,0 +1,126 @@
+{% extends 'dashboard/main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Dropdown box -->
+            <div class="border p-3 mb-3">
+                <select id="cardSelector" class="form-select" style="border-radius: 0; border: none">
+                    <option selected disabled>Select the card you are wanting to view</option>
+                    <option value="delivering">Delivering</option>
+                    <option value="releasing">Easy to release</option>
+                    <option value="fun">Fun</option>
+                    <option value="codebase">Health of Codebase</option>
+                    <option value="learning">Learning</option>
+                    <option value="mission">Mission</option>
+                    <option value="pawnsOrPlayers">Pawns or Players</option>
+                    <option value="speed">Speed</option>
+                    <option value="process">Suitable Process</option>
+                    <option value="support">Support</option>
+                    <option value="teamwork">Teamwork</option>
+                </select>
+            </div>
+
+            <!-- Display box -->
+            <div class="border p-3 mb-3" style="min-height: 50vh; display: flex; flex-direction: column;">
+                <div class="border p-3" style="margin-bottom: 1rem;" id="cardDisplay">
+                    <p><strong>Select a card to view details</strong></p>
+                    <p>The details of the selected card will appear here.</p>
+                </div>
+            </div>
+
+            <!-- Buttons box -->
+            <div class="text-end">
+                <button class="btn" style="border: 1px solid #ccc; border-radius: 0;">Add</button>
+                <button class="btn" style="border: 1px solid #ccc; border-radius: 0;">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block navigation_buttons %}
+<div class="mt-5">
+    <a href="{% url 'team_department' %}" class="btn btn-primary">Back</a>
+    <a href="{% url 'view_session' %}" class="btn btn-primary">Next</a>
+</div>
+
+<script>
+    const cards = {
+        delivering: {
+            title: "Delivering",
+            positive: "We deliver great Value stuff! We're proud of it and our stakeholders are really happy.",
+            negative: "We deliver crap. We feel ashamed to deliver it. Our stakeholders hate us."
+        },
+        releasing: {
+            title: "Easy to release",
+            positive: "Releasing is simple, safe, painless and mostly automated.",
+            negative: "Releasing is risky, painful, lots of manual work and takes forever."
+        },
+        fun: {
+            title: "Fun",
+            positive: "We love going to work and have great fun working together!",
+            negative: "Boooooooring..."
+        },
+        codebase: {
+            title: "Health of Codebase",
+            positive: "We're proud of the quality of our code! It is clean, easy to read and has great test coverage.",
+            negative: "Our code is a pile of dung and technical debt is raging out of control."
+        },
+        learning: {
+            title: "Learning",
+            positive: "We're learning lots of interesting stuff all the time!",
+            negative: "We never have time to learn anything."
+        },
+        mission: {
+            title: "Mission",
+            positive: "We know exactly why we are here and we’re really excited about it!",
+            negative: "We have no idea why we are here, there's no high level picture or focus. Our so-called mission is completely unclear and uninspiring."
+        },
+        pawnsOrPlayers: {
+            title: "Pawns or Players",
+            positive: "We are in control of our own destiny! We decide what to build and how to build it.",
+            negative: "We are just pawns in a game of chess with no influence over what we build or how we build it."
+        },
+        speed: {
+            title: "Speed",
+            positive: "We get stuff done really quickly! No waiting and no delays.",
+            negative: "We never seem to get anything done. We keep getting stuck or interrupted. Stories keep getting stuck on dependencies."
+        },
+        process: {
+            title: "Suitable Process",
+            positive: "Our way of working fits us perfectly!",
+            negative: "Our way of working sucks!"
+        },
+        support: {
+            title: "Support",
+            positive: "We always get great support and help when we ask for it!",
+            negative: "We keep getting stuck because we can't get the support and help that we ask for."
+        },
+        teamwork: {
+            title: "Teamwork",
+            positive: "We are a totally gelled super-team with awesome collaboration!",
+            negative: "We are a bunch of individuals that neither know nor care about what the other people in the squad are doing."
+        }
+    };
+
+    document.getElementById("cardSelector").addEventListener("change", function () {
+        const selected = this.value;
+        const displayBox = document.getElementById("cardDisplay");
+
+        if (cards[selected]) {
+            displayBox.innerHTML = `
+                <p><strong>${cards[selected].title}</strong></p>
+                <p><strong>Positive:</strong> ${cards[selected].positive}</p>
+                <p><strong>Negative:</strong> ${cards[selected].negative}</p>
+            `;
+        } else {
+            displayBox.innerHTML = `
+                <p><strong>Select a card to view details</strong></p>
+                <p>The details of the selected card will appear here.</p>
+            `;
+        }
+    });
+</script>
+{% endblock %}
